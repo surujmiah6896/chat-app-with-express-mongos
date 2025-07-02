@@ -2,8 +2,10 @@
   "name": "chat-app",
   "version": "1.0.0",
   "description": "This is a Chat Application crete with node.js, express, mongodb etc",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "NODE_ENV=development nodemon app.js",
+    "production": "NODE_ENV=production node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -24,6 +26,7 @@
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.1",
-    "multer": "^2.0.1"
+    "multer": "^2.0.1",
+    "nodemon": "^3.1.10"
   }
 }
