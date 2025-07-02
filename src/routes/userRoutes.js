@@ -11,6 +11,7 @@
 //dependence
 const express = require("express");
 const {login, getUsers, getInbox} = require("../controller/userController");
+const decorateHtmlResponse = require('../middlewares/decorateHtmlResponse');
 
 //object init
 const userRouters = express.Router();
@@ -22,7 +23,7 @@ userRouters.get("/", login);
 userRouters.get("/all", getUsers);
 
 //get Inbox
-userRouters.get("/inbox", getInbox);
+userRouters.get("/inbox",decorateHtmlResponse, getInbox);
 
 
 
