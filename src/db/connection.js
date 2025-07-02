@@ -18,7 +18,7 @@ const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/chat-app';
 
 const db = {};
 // Function to connect to the database
-db.connect = async () => {
+db.dbConnect = async () => {
     try {
         await mongoose.connect(MONGO_URL, {
             useNewUrlParser: true,
