@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
 
-const { dbConnect } = require('./src/DB/connection');
+const { dbConnect } = require('./src/db/connection');
 const cookieParser = require('cookie-parser');
-const { notFound, errorHandler } = require('./src/Middleware/notFoundMiddleware');
+const { notFound, errorHandler } = require('./src/middlewares/notFoundMiddleware');
+const userRouters = require("./src/routes/userRoutes");
 
 
 
@@ -30,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //parse cookies
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
+//route setup
+app.use("/user", userRouters);
 
 //error handler
 app.use((err, req, res, next) => {
