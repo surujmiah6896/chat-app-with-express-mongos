@@ -10,13 +10,19 @@
 
 //dependence
 const express = require("express");
-const {login, getUsers} = require("../controller/userController");
+const {login, getUsers, getInbox} = require("../controller/userController");
 
 //object init
 const userRouters = express.Router();
 
 //user login
 userRouters.get("/", login);
+
+//get users
+userRouters.get("/all", getUsers);
+
+//get Inbox
+userRouters.get("/inbox", getInbox);
 
 
 

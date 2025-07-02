@@ -14,14 +14,24 @@ const userController = {};
 
 //login
 userController.login = async (req, res) =>{ 
-    res.render("user/login", {
+    res.render("user/index", {
         title: "Login Chat Application",
     });
 }
 
 //get users
 userController.getUsers = async (req, res) => {
+    res.render("user/users", {
+        title: "users page",
+    })
 
+}
+
+// get inbox
+userController.getInbox = async (req, res) => {
+    res.render("user/inbox", {
+        title: "user Inbox",
+    })
 }
 
 //export controller
