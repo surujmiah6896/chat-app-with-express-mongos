@@ -6,7 +6,8 @@ const mongoose = require("mongoose");
 const { dbConnect } = require('./src/db/connection');
 const cookieParser = require('cookie-parser');
 const { notFound, errorHandler } = require('./src/middlewares/notFoundMiddelware');
-const userRouters = require("./src/routes/userRoutes");
+// const userRouters = require("./src/routes/userRoutes");
+const { login, getUsers, getInbox } = require("./src/controller/userController");
 
 
 
@@ -43,7 +44,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 //route setup
-app.use("/user", userRouters);
+//user login
+app.use("/", (req, res) => {
+  res.render("user/index");
+});
+
+//get users
+app.use("/users", getUsers);
+
+//get Inbox
+app.use("/inbox", getInbox);
 
 //error handler
 app.use((err, req, res, next) => {

@@ -20,10 +20,10 @@ const userRouters = express.Router();
 userRouters.get("/", login);
 
 //get users
-userRouters.get("/all", getUsers);
+userRouters.get("/users", getUsers);
 
 //get Inbox
-userRouters.get("/inbox",decorateHtmlResponse, getInbox);
+userRouters.get("/inbox", getInbox);
 
 
 
