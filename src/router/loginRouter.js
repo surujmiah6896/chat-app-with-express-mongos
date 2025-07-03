@@ -6,7 +6,7 @@ const decorateHtmlResponse = require("../middlewares/decorateHtmlResponse");
 
 const router = express.Router();
 //login page
-router.get("/", decorateHtmlResponse, getLogin);
+router.get("/", getLogin);
 
 //export
 module.exports = router;

@@ -8,6 +8,9 @@ const cookieParser = require('cookie-parser');
 const { notFound, errorHandler } = require('./src/middlewares/notFoundMiddelware');
 // const userRouters = require("./src/routes/userRoutes");
 const { login, getUsers, getInbox } = require("./src/controller/userController");
+const loginRouter = require("./src/router/loginRouter");
+const usersRouter = require("./src/router/usersRouter");
+const inboxRouter = require("./src/router/inboxRouter");
 
 
 
@@ -45,15 +48,13 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 //route setup
 //user login
-app.use("/", (req, res) => {
-  res.render("user/index");
-});
+app.use("/", loginRouter);
 
 //get users
-app.use("/users", getUsers);
+app.use("/users", usersRouter);
 
 //get Inbox
-app.use("/inbox", getInbox);
+app.use("/inbox", inboxRouter);
 
 //error handler
 app.use((err, req, res, next) => {

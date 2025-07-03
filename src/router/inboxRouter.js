@@ -8,6 +8,7 @@ const decorateHtmlResponse = require("../middlewares/decorateHtmlResponse");
 const router = express.Router();
 
 // inbox page
-router.get("/", decorateHtmlResponse("Inbox"), getInbox);
+router.get("/",  getInbox);
+// router.get("/", decorateHtmlResponse("Inbox"), getInbox);
 
 module.exports = router;
